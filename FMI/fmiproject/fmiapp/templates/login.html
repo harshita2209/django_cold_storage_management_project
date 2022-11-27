@@ -1,0 +1,92 @@
+<html>
+  <head>
+    {% load static %}
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet"/>
+    <link href="{% static 'css/about.css' %}" rel="stylesheet"/>
+    <script src="{% static 'js/bootstrap.bundle.js' %}"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://kit.fontawesome.com/290d4f0eb4.js" crossorigin="anonymous"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  </head>
+  <body>
+  <div style="background-color:ghostwhite;">
+    <div class="flex justify-center py-3 ">
+        <nav class=" w-full max-w-45xl navbar-expand-lg ">
+            <div class="flex flex-col lg:flex-row justify-around items-center ">
+                    <a class="navbar-brand" href="#"><img src="{% static 'images/logo.png' %}" height="50" width="50" ></a>
+
+                <ul class="hidden lg:flex items-center text-[18px] font-semibold pl-32">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{% url 'index' %}">Home</a>
+                     </li>
+                    <li class="hover:underline underline-offset-4 decoration-2 decoration-white py-2 rounded-lg px-5"><a href="{% url 'about' %}">About Us</a></li>
+                     <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Registration
+                         </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="{% url 'farmerreg' %}">Farmer Registration</a></li>
+                                <li><a class="dropdown-item" href="{% url 'merchantreg' %}">Merchant Registration</a></li>
+                            </ul>
+                     </li>
+                    </li>
+                    <li class="hover:underline underline-offset-4 decoration-2 decoration-white py-2 rounded-lg px-5"><a href="{% url 'login' %}">Login</a></li>
+                    <li class="hover:underline underline-offset-4 decoration-2 decoration-white py-2 rounded-lg px-5"><a href="{% url 'contact' %}">Contact Us</a></li>
+                </ul>
+                 <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+               </div>
+        </nav>
+    </div>
+
+</div>
+</div>
+
+      <div class="row">
+    <form action="{% url 'validate' %}" method="post">
+                    {% csrf_token %}
+  <div class="flex justify-center">
+      <div class="flex flex-col justify-center">
+          <div class="flex flex-col md:flex-row max-w-10xl justify-center items-center ">
+              <div class="overflow-hidden w-full m-4 flex justify-center bg-gray-50 rounded-lg shadow-xl">
+                  <div class="flex flex-col md:flex-row items-center shadow-md h-full  ">
+                      <div class="  md:w-1/2 overflow-hidden ">
+                          <div class="flex flex-col items-center justify-center text-stone-400">
+                              <ion-icon name="logo-amplify" class="text-5xl text-fuchsia-600"></ion-icon>
+                              <h4 style="color:blue;text-align:center;font-size:25px; ">
+                                Admin Login
+                              </h4>
+                             {% if msg %}
+                                <p style="text-align:center;">{{msg}}</p>
+                             {% endif %}
+                              <div class="flex flex-col">
+                                  <div class="m-2">Enter User ID</div>
+                                  <input class="border-b m-2  bg-gray-50 focus:outline-none" type="text" name="userid" required="true"/>
+                                  <div class="m-2">PASSWORD</div>
+                                  <input class="border-b m-2  bg-gray-50  focus:outline-none" type="password" name="password" required="true" />
+                                  <div class="flex m-2">
+                                      <input class="border-b  border-stone-400 " type="checkbox" />
+                                      <div class="ml-1">Remember Me</div>
+                                  </div>
+                                  <div class="flex m-2">
+                                      <button class="bg-gradient-to-l from-fuchsia-600 to-cyan-400 px-6 py-1 rounded-2xl text-white font-medium">LOGIN</button>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                      <div class=" md:w-1/2 overflow-hidden ">
+                          <img src="{%  static 'images/Admin.jpg' %}" alt="" class="" />
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+    </form>
+      </div>
+  </div>
+  </body>
+
+</html>

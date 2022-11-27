@@ -1,0 +1,63 @@
+{% extends "adminbase.html" %}
+{% block body %}
+    <h4 style="color:blue;text-align:center;"><b>
+        Booking Details</b>
+    </h4>
+    <div class="row">
+        <div class="col-sm-12">
+            {% if res %}
+            <table border="1" style="width:75%;margin:0 auto;">
+                <tr>
+                    <td scope="col">Name</td>
+                    <td>{{res.name}}</td>
+                </tr>
+                <tr>
+                    <td scope="col">Address</td>
+                    <td>{{res.address}}</td>
+                </tr>
+                <tr>
+                    <td scope="col">Contact No</td>
+                    <td>{{res.contactno}}</td>
+                </tr>
+                <tr>
+                    <td scope="col">Aadhar No</td>
+                    <td>{{res.aadharno}}</td>
+                </tr>
+                <tr>
+                    <td scope="col">No. of Packets</td>
+                    <td>{{res.noofpacket}}</td>
+                </tr>
+                <tr>
+                    <td  scope="col">Duration in months</td>
+                    <td>{{res.duration}}</td>
+                </tr>
+                <tr>
+                    <td scope="col">Rate per month per packet</td>
+                    <td>{{res.rate}}</td>
+                </tr>
+                <tr>
+                    <td scope="col">Total Amount</td>
+                    <td>{{res.totalamt}}</td>
+                </tr>
+                <tr>
+                    <td scope="col">Advance Amount</td>
+                    <td>{{res.advance}}</td>
+                </tr>
+                <tr>
+                    <td scope="col">Rest Amount</td>
+                    <td>{{res.restamt}}</td>
+                </tr>
+                <tr>
+                    <td scope="col">Booking Date</td>
+                    <td>{{res.bookingdate}}</td>
+                </tr>
+                <tr>
+
+                        <input type="button" value="print" onclick="window.print();"/>
+
+                </tr>
+            </table>
+            {% endif %}
+        </div>
+    </div>
+{% endblock body %}

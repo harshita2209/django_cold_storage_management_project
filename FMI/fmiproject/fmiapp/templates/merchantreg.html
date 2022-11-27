@@ -1,0 +1,117 @@
+<html>
+  <head>
+    {% load static %}
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet"/>
+    <link href="{% static 'css/about.css' %}" rel="stylesheet"/>
+    <script src="{% static 'js/bootstrap.bundle.js' %}"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://kit.fontawesome.com/290d4f0eb4.js" crossorigin="anonymous"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  </head>
+  <body>
+  <div style="background-color:ghostwhite;" class="container-fluid">
+    <div class="flex justify-center py-3 ">
+        <nav class=" w-full max-w-45xl navbar-expand-lg ">
+            <div class="flex flex-col lg:flex-row justify-around items-center ">
+                    <a class="navbar-brand" href="#"><img src="{% static 'images/logo.png' %}" height="50" width="50" ></a>
+
+                <ul class="hidden lg:flex items-center text-[18px] font-semibold pl-32">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{% url 'index' %}">Home</a>
+                     </li>
+                    <li class="hover:underline underline-offset-4 decoration-2 decoration-white py-2 rounded-lg px-5"><a href="{% url 'about' %}">About Us</a></li>
+                     <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Registration
+                         </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="{% url 'farmerreg' %}">Farmer Registration</a></li>
+                                <li><a class="dropdown-item" href="{% url 'merchantreg' %}">Merchant Registration</a></li>
+                            </ul>
+                     </li>
+                    </li>
+                    <li class="hover:underline underline-offset-4 decoration-2 decoration-white py-2 rounded-lg px-5"><a href="{% url 'login' %}">Login</a></li>
+                    <li class="hover:underline underline-offset-4 decoration-2 decoration-white py-2 rounded-lg px-5"><a href="{% url 'contact' %}">Contact Us</a></li>
+                </ul>
+                 <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+               </div>
+        </nav>
+    </div>
+
+</div>
+</div>
+
+      <div class="row">
+  <form action="{% url 'mreg' %}" method="post">
+        {% csrf_token %}
+     <div class="flex justify-center">
+         <div class="flex  justify-center  shadow max-w-7xl w-[90%]  bg-gradient-to-bl from-violet-600 via-purple-600 to-violet-500 m-4">
+                      <img class="h-450 md:h-500 w-[40%] md:w-[50%] " src="{% static 'images/ig.jpg' %}" alt="" srcset="">
+
+             <div class="h-[90%] w-full mt-7">
+                 <div class=" flex flex-col justify-center items-center space-y-2">
+
+                     <div>
+                         <h1 class="text-xl font-semibold text-white">Merchant Registration</h1>
+                          {% if msg %}
+                             <p style="text-align:center; color:white;font-size:15px;">{{msg}}</p>
+                          {% endif %}
+                     </div>
+                     <div>
+                         <h1 class="text-sm font-semibold text-gray-200">Let's join us :)</h1>
+                     </div>
+                 </div>
+                 <div class="flex flex-col justify-center items-center mt-7 space-y-6 md:space-y-8">
+                     <div class="space-y-2">
+                         <h1 class="text-base text-gray-200">Enter Firm Owner Name</h1>
+                         <input type="text" placeholder=""name="name" required="true" class="rounded-md px-5 py-2 bg-gray-300 text-gray-600 focus:outline-none font-semibold md:w-72 lg:w-[340px]">
+                     </div>
+                     <div class="space-y-2">
+                         <h1 class="text-base text-gray-200">Select Your Gender</h1>
+                         <input type="radio" placeholder=""name="gender" value="male" class=" text-light ">Male
+                         <input type="radio" placeholder=""name="gender" value="female" class="  bg-light text-light ">Female
+                     </div>
+                     <div class="space-y-2">
+                         <h1 class="text-base text-gray-200">Enter Firm  Name</h1>
+                         <input type="text" placeholder=""name="firmname" required="true" class="rounded-md px-5 py-2 bg-gray-300 text-gray-600 focus:outline-none font-semibold md:w-72 lg:w-[340px]">
+                     </div>
+                     <div class="space-y-2">
+                         <h1 class="text-base text-gray-200">Enter Firm  Address</h1>
+                         <textarea name="firmaddress" required="true" class="rounded-md px-5 py-2 bg-gray-300 text-gray-600 focus:outline-none font-semibold md:w-72 lg:w-[340px]">
+                         </textarea>
+                     </div>
+                     <div class="space-y-2">
+                         <h1 class="text-base text-gray-200">Enter  Contact  Number</h1>
+                         <input type="number" placeholder=""name="contactno" required="true" class="rounded-md px-5 py-2 bg-gray-300 text-gray-600 focus:outline-none font-semibold md:w-72 lg:w-[340px]">
+                     </div>
+                     <div class="space-y-2">
+                         <h1 class="text-base text-gray-200">Enter Email Address</h1>
+                         <input type="email" placeholder=""name="emailaddress" required="true" class="rounded-md px-5 py-2 bg-gray-300 text-gray-600 focus:outline-none font-semibold md:w-72 lg:w-[340px]">
+                     </div>
+                     <div class="space-y-2">
+                         <h1 class="text-base text-gray-200">Enter Aadhar Number</h1>
+                         <input type="number" placeholder=""name="aadharno" required="true" class="rounded-md px-5 py-2 bg-gray-300 text-gray-600 focus:outline-none font-semibold md:w-72 lg:w-[340px]">
+                     </div>
+                     <div class="space-y-2">
+                         <h1 class="text-base text-gray-200">Enter PAN Number</h1>
+                         <input type="text" placeholder=""name="panno" required="true" class="rounded-md px-5 py-2 bg-gray-300 text-gray-600 focus:outline-none font-semibold md:w-72 lg:w-[340px]">
+                     </div>
+                     <div class="space-y-2">
+                         <h1 class="text-base text-gray-200">Enter GST Number</h1>
+                         <input type="text" placeholder=""name="gstno" required="true" class="rounded-md px-5 py-2 bg-gray-300 text-gray-600 focus:outline-none font-semibold md:w-72 lg:w-[340px]">
+                     </div>
+                 </div>
+                 <div class="text-center mt-10">
+                     <button class="uppercase px-24 md:px-[118px] lg:px-[140px] py-2 rounded-md text-white bg-gradient-to-b from-violet-700 via-violet-600 to-violet-700 hover:brightness-105  font-medium ">Register</button>
+                 </div>
+             </div>
+         </div>
+     </div>
+  </form></div>
+  </div>
+  </body>
+</html>
